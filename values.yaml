@@ -1,0 +1,13 @@
+apps:
+  - appname: test30-1-01
+    projectname: test30-1
+  - appname: test40-11-11
+    projectname: test40-11
+  - appname: test40-11-23231
+    projectname: test40-11
+  - appname: test-12313-1231
+    projectname: testt-12313
+  - appname: test-0123-1
+    projectname: test-0123
+  - appname: test2221-1111
+    projectname: test2211

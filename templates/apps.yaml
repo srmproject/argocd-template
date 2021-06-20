@@ -1,0 +1,22 @@
+{{- range $app := .Values.apps }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ $app.projectname }}-{{ $app.appname }}
+  namespace: argocd
+spec:
+  project: {{ $app.projectname }}
+  source:
+    path: {{ $app.appname }}
+    repoURL: 'https://gitlab.choilab.xyz/common/argocd/app_appofapps.git'
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    namespace: {{ $app.projectname }}
+    server: 'https://kubernetes.default.svc'
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+{{ end -}}
